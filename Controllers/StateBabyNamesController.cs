@@ -28,6 +28,8 @@ namespace BabyNamesApi.Controllers
 
             if (state != null && Enum.TryParse(state.Trim().ToUpper(), out StateCode stateCode))
                 babyNames = new StateBabyNameRepository().Get(stateCode).ToList();
+            else
+                babyNames = new StateBabyNameRepository().All().ToList();
 
             if (year.HasValue)
                 babyNames = babyNames.Where(bn => bn.Year == year).ToList();                    

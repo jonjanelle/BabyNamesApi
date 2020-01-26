@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using BabyNamesApi.Commands;
+using BabyNamesApi.Data;
 using BabyNamesApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,7 +26,9 @@ namespace BabyNamesApi.Controllers
             List<YearBabyName> babyNames = new List<YearBabyName>();
 
             if (year.HasValue)
-                babyNames = babyNames.Where(bn => bn.Year == year).ToList();
+                babyNames = new YearBabyNameRepository().Get(year.Value).ToList();
+            else
+                babyNames = new YearBabyNameRepository().All().ToList();
 
             if (sex != null)
             {

@@ -35,7 +35,7 @@ namespace BabyNamesApi.Data
                     {
                         Name = rowElements[0].Trim(),
                         Sex = rowElements[1].Trim(),
-                        Count = Int32.Parse(rowElements[3]),
+                        Count = Int32.Parse(rowElements[2]),
                         Year = year
                     };
                 });

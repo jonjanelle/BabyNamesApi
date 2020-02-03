@@ -4,10 +4,17 @@ namespace BabyNamesApi.Models
 {
     public class State
     {
-        public StateCode Abbreviation { get; set; }
-        public string Name => GetState(this.Abbreviation);
+        private readonly StateCode _stateCode;
+        public string Abbreviation { get; set; }
+        public string Name => GetState(this._stateCode);
 
-        public string GetState(StateCode state)
+        public State(StateCode stateCode)
+        {
+            this._stateCode = stateCode;
+            this.Abbreviation = this._stateCode.ToString();
+        }
+
+        private string GetState(StateCode state)
         {
             switch (state)
             {
@@ -37,9 +44,6 @@ namespace BabyNamesApi.Models
 
                 case StateCode.DC:
                     return "DISTRICT OF COLUMBIA";
-
-                case StateCode.FM:
-                    return "FEDERATED STATES OF MICRONESIA";
 
                 case StateCode.FL:
                     return "FLORIDA";

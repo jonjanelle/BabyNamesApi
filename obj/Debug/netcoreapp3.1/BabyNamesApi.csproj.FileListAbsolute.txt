@@ -89,3 +89,4 @@ C:\dev\BabyNamesApi\BabyNamesApi\bin\Debug\netcoreapp3.1\BabyNamesApi.pdb
 C:\dev\BabyNamesApi\BabyNamesApi\obj\Debug\netcoreapp3.1\BabyNamesApi.MvcApplicationPartsAssemblyInfo.cache
 C:\dev\BabyNamesApi\BabyNamesApi\obj\Debug\netcoreapp3.1\BabyNamesApi.dll
 C:\dev\BabyNamesApi\BabyNamesApi\obj\Debug\netcoreapp3.1\BabyNamesApi.pdb
+C:\dev\BabyNamesApi\BabyNamesApi\obj\Debug\netcoreapp3.1\BabyNamesApi.csprojAssemblyReference.cache

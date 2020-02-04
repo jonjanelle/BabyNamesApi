@@ -29,8 +29,8 @@ namespace BabyNamesApi.Commands
             
             for (var i = 0; i < _orderComponents.Count()/2; i++)
             {
-                var order = _orderComponents[2 * i];
-                var field = _orderComponents[2 * i + 1];    
+                var field = _orderComponents[2 * i];
+                var order = _orderComponents[2 * i + 1];    
 
                 if (ValidOrderings.Contains(order) && ValidFields.Contains(field))
                 {

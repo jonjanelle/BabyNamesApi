@@ -19,9 +19,7 @@ namespace BabyNamesApi.Data
             _babyNamesLookup = new Dictionary<int, IEnumerable<YearBabyName>>();
 
             for (var year = MinYear; year <= MaxYear; year++)
-            {
                 ReadFileData(year);
-            }
         }
 
         private static void ReadFileData(int year)
@@ -45,6 +43,30 @@ namespace BabyNamesApi.Data
         public IEnumerable<YearBabyName> All()
         {
             return _babyNamesLookup.SelectMany(bn => bn.Value);
+        }
+
+        public IEnumerable<TopYearName> TopOverTime(string sex)
+        {
+            sex = sex?.Trim()?.ToUpper();
+            var topYearNames = new List<TopYearName>();
+            
+            for (int year = MinYear; year <= MaxYear; year++)
+            {
+               YearBabyName topName;
+               if (sex == null)
+                    topName = _babyNamesLookup[year].OrderByDescending(bn => bn.Count).First();
+               else 
+                    topName = _babyNamesLookup[year].Where(bn => bn.Sex == sex).OrderByDescending(bn => bn.Count).First();
+
+               topYearNames.Add(new TopYearName
+               {
+                   Year = topName.Year,
+                   Name = topName.Name,
+                   Count = topName.Count
+               });
+            }
+
+            return topYearNames;
         }
 
         public IEnumerable<YearBabyName> Get(int year)

@@ -1,5 +1,6 @@
 ﻿using BabyNamesApi.Data;
 using BabyNamesApi.Models;
+using BabyNamesApi.Queries;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace BabyNamesApi.Controllers
         [HttpGet]
         public IEnumerable<TopYearName> Get([FromQuery]string sex)
         {
-            return new YearBabyNameRepository().TopOverTime(sex).ToList();
+            return new TopNameByYearQuery(sex).Execute();
         }
     }
 }

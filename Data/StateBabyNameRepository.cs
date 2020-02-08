@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace BabyNamesApi.Data
 {
-    public class StateBabyNameRepository : IRepository<StateCode, StateBabyName>
+    internal sealed class StateBabyNameRepository : IRepository<StateCode, StateBabyName>
     {
         private static readonly IDictionary<StateCode, IEnumerable<StateBabyName>> _babyNamesLookup;
 

@@ -15,9 +15,11 @@ namespace BabyNamesApi.Controllers
     {
         // GET: api/TopByYear
         [HttpGet]
-        public IEnumerable<TopYearName> Get([FromQuery]string sex)
+        public IEnumerable<YearNameCount> Get([FromQuery]string sex)
         {
             return new TopNameByYearQuery(sex).Execute();
         }
+
+
     }
 }

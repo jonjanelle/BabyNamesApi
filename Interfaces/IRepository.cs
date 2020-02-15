@@ -2,9 +2,9 @@
 
 namespace BabyNamesApi.Interfaces
 {
-    public interface IRepository<K, V>
+    public interface IRepository<TKey, TValue>
     {
-        public IEnumerable<V> All();
-        public IEnumerable<V> Get(K key);
+        public IEnumerable<TValue> All();
+        public IEnumerable<TValue> Get(TKey key);
     }
 }

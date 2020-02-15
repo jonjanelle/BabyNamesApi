@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace BabyNamesApi.Models
 {
-    public class NameCountForYear
-    { 
+    public class YearNameCount
+    {
+        public int Year { get; set; }
         public string Name { get; set; }
         public int Count { get; set; }
-        public int Year { get; set; }
     }
 }

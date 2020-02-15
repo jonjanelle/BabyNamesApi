@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BabyNamesApi.Queries
 {
-    internal class TopNameByYearQuery : IQuery<TopYearName>
+    internal class TopNameByYearQuery : IQuery<YearNameCount>
     {
         private string _sex { get; set; }
         private YearBabyNameRepository _yearBabyNameRepository { get; set; }
@@ -19,9 +19,9 @@ namespace BabyNamesApi.Queries
             _yearBabyNameRepository = new YearBabyNameRepository();
         }
 
-        public IEnumerable<TopYearName> Execute()
+        public IEnumerable<YearNameCount> Execute()
         {
-            var topYearNames = new List<TopYearName>();
+            var topYearNames = new List<YearNameCount>();
 
             for (int year = YearBabyNameRepository.MinYear; year <= YearBabyNameRepository.MaxYear; year++)
             {
@@ -31,7 +31,7 @@ namespace BabyNamesApi.Queries
                 else
                     topName = _yearBabyNameRepository.Get(year).Where(bn => bn.Sex == _sex).OrderByDescending(bn => bn.Count).First();
 
-                topYearNames.Add(new TopYearName
+                topYearNames.Add(new YearNameCount
                 {
                     Year = topName.Year,
                     Name = topName.Name,

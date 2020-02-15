@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace BabyNamesApi.Models
 {
-    public class TopYearName
+    // Made for NumberOneNameOverTime
+    public class YearCount
     {
         public int Year { get; set; }
-        public string Name { get; set; }
         public int Count { get; set; }
+        public double PercentOfTotal { get; set; }
     }
 }
